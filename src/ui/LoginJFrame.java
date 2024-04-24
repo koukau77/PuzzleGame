@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class LoginJFrame extends JFrame implements ActionListener {
 
-    JButton loginButton = new JButton("Login");
-    JButton registerButton = new JButton("Register");
+    JButton loginButton = new JButton(new ImageIcon("imgs/login/login.png"));
+    JButton registerButton = new JButton(new ImageIcon("imgs/login/register.png"));
     JTextField username = new JTextField();
     JTextField password = new JTextField();
     JTextField veriCode = new JTextField();
@@ -56,36 +56,33 @@ public class LoginJFrame extends JFrame implements ActionListener {
     }
     private void initView(){
         // add username
-        JLabel usernameText = new JLabel();
-        usernameText.setText("Username");
-        usernameText.setFont(new Font("Dialog", Font.PLAIN, 15));
-        usernameText.setBounds(116, 135, 47, 15);
+        JLabel usernameText = new JLabel(new ImageIcon("imgs/login/username.png"));
+        usernameText.setBounds(100, 135, 86, 29);
         this.getContentPane().add(usernameText);
         // username input box
         username.setBounds(195, 134, 200, 30);
         this.getContentPane().add(username);
 
         // add password
-        JLabel passwordText = new JLabel();
-        passwordText.setText("Password");
-        passwordText.setFont(new Font("Dialog", Font.PLAIN, 15));
-        passwordText.setBounds(130, 195, 32, 16);
+        JLabel passwordText = new JLabel(new ImageIcon("imgs/login/password.png"));
+        passwordText.setBounds(100, 196, 84, 29);
         this.getContentPane().add(passwordText);
         // password input box
         password.setBounds(195, 195, 200, 30);
         this.getContentPane().add(password);
 
         // add verification code
-        JLabel veriCodeText = new JLabel();
-        veriCodeText.setText("Verification code");
-        veriCodeText.setFont(new Font("Dialog", Font.PLAIN, 15));
-        veriCodeText.setBounds(133, 256, 50, 30);
+        JLabel veriCodeText = new JLabel(new ImageIcon("imgs/login/verification code.png"));
+        veriCodeText.setBounds(92, 250, 94, 47);
         this.getContentPane().add(veriCodeText);
         // verification code input box
         veriCode.setBounds(195, 256, 100, 30);
         this.getContentPane().add(veriCode);
         // show code
         correctCode.setText(code);
+        Font newFont = new Font("Arial", Font.PLAIN, 15);
+        correctCode.setFont(newFont);
+        correctCode.setForeground(Color.CYAN);
         correctCode.setBounds(300, 256, 50, 30);
         this.getContentPane().add(correctCode);
 
@@ -133,6 +130,7 @@ public class LoginJFrame extends JFrame implements ActionListener {
         if (obj == loginButton){
             boolean flag = checkLogin(list);
             if (flag){
+                this.setVisible(false);
                 new GameJFrame();
             }else {
                 code = Code.getCode();

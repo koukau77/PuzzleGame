@@ -95,7 +95,7 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
         }
 
         // add background
-        JLabel background = new JLabel(new ImageIcon("imgs/background.png"));
+        JLabel background = new JLabel(new ImageIcon("imgs/background.jpg"));
         background.setBounds(0, -40, 600, 877);
         this.getContentPane().add(background);
 
